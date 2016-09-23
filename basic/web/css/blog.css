@@ -1,0 +1,21 @@
+ul{
+    margin:0;
+    padding:0;
+}
+ul li{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    font-size: 14px;
+    /* outline: 0; */
+}
+
+body, ul, ol, li, p, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
