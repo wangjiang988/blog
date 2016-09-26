@@ -4,6 +4,7 @@
 use yii\widgets\LinkPager;
 use yii\helpers\Html;
 use app\widgets\panel\PanelWidget;
+use yii\helpers\Url;
 
 $this->title = Yii::t('blog','home');
 $this->params['breadcrumbs'][] = $this->title;
@@ -14,11 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
        <ul class="postList">
            <?php foreach ($list as $post) : ?>
                <li  class="post">
-                   <h2><?= html::encode("{$post->title}")?></h2>
-                   <span class=""><?= Html::encode($post->author)?>|<?= Html::encode($post->addedDate)?></span>
+                   <h2><a href="<?= Url::to(['site/post','id' => $post->id]); ?>"><?= html::encode("{$post->title}")?></a></h2>
+                   <span class="post-tags">
+                       	<span  class="glyphicon glyphicon-user"></span>
+                       	<span><?= Html::encode($post->author)?></span>
+                       	<span  class="glyphicon glyphicon-time"></span>
+                       	<span><?= Html::encode($post->addedDate)?></span>
+                   </span>
                    <div class="post-summary">
                        <?= Html::encode($post->summary)?>
                    </div>
+                   <div class="post-more">
+                   		<a href="<?= Url::to(['site/post','id' => $post->id]); ?>" class="btn btn-warning no-radius btn-sm pull-right">阅读全文</a>
+                   	</div>
+                   <hr/>
                </li>
            <?php endforeach;?>
        </ul>

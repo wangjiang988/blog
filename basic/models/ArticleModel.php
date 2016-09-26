@@ -130,4 +130,12 @@ class ArticleModel extends \yii\db\ActiveRecord
             'list' =>$list,
         ];
     }
+    
+    
+    public function getPostById($id)
+    {
+        return  ArticleModel::find()
+        ->where(['type'=> self::BLOG,'id' => $id])->one();
+    }
+    
 }

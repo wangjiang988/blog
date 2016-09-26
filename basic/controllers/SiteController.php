@@ -69,6 +69,19 @@ class SiteController extends Controller
             'list'     =>    $result['list'],
         ]);
     }
+    
+    /**
+     * 详情页
+     */
+    public function actionPost()
+    {
+        $this->layout  =  'blogMain';
+        
+        $id            =  Yii::$app->request->get('id');
+        $model         =  new ArticleModel();
+        $post          =  $model->getPostById($id);
+        return $this->render('post',['post'=>$post]);
+    }
 
     /**
      * Login action.
